@@ -1,0 +1,65 @@
+body {
+  background-color: #F6F4F6;
+}
+
+#header-title {
+  background: linear-gradient(to right, #5F1478, #AE276F);
+  height: 64px;
+}
+
+#header-logo {
+  background: transparent url('./images/logo-teste@2x.png') 0% 0% no-repeat padding-box;
+  background-size: cover;
+  opacity: 1;
+  margin-left: 24px;
+  width: 192px;
+  height: 37px;
+}
+
+#search-bar {
+  margin-top: 100px;
+  height: 75px;
+  font: var(--unnamed-font-style-normal) normal 300 var(--unnamed-font-size-24)/var(--unnamed-line-spacing-30) var(--unnamed-font-family-muli);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: left;
+  font: normal normal 300 24px/30px Muli;
+  letter-spacing: 0px;
+  color: #757575;
+  opacity: 1;
+}
+
+#search-container {
+  width: 100%;
+  height: 261px;
+  background-image: url("./images/fundo-busca@2x.png");
+  background-size: cover;
+}
+
+#results-title-row {
+  margin-top: 40px;
+}
+
+#results-title{
+  color: #5F1478;
+}
+
+#btn-new-card{
+  float: right;
+  background-color: #E76316;
+  height: 48px;
+  width: 173px;
+}
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
