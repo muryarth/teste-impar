@@ -1,11 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Navbar, Form, Container, InputGroup, Button, Row, Col } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Navbar, Form, Container, InputGroup, Button, Row, Col } from 'react-bootstrap';
 import { AiOutlineSearch } from 'react-icons/ai';
+import CardsList from './components/CardsList'
 
 function App() {
   return (
     <>
-    
       <Navbar id="header-title">
         <Navbar.Brand id="header-logo" />
       </Navbar>
@@ -35,6 +35,9 @@ function App() {
           <Col md={6} xs={6}>
             <Button id="btn-new-card">Novo card</Button>
           </Col>
+        </Row>
+        <Row>
+          <CardsList />
         </Row>
       </Container>
     </>
