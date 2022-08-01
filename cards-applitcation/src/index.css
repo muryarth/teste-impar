@@ -1,16 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap'); */
-
-body {
-  background-color: #F6F4F6;
-}
 
 #header-title {
   background: linear-gradient(to right, #5F1478, #AE276F);
   height: 64px;
-  /* width: 100%;
-  position: fixed; */
 }
 
 #header-logo {
@@ -22,23 +14,27 @@ body {
   height: 37px;
 }
 
-#search-bar {
-  margin-top: 100px;
-  height: 75px;
-  font: var(--unnamed-font-style-normal) normal 300 var(--unnamed-font-size-24)/var(--unnamed-line-spacing-30) var(--unnamed-font-family-muli);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  text-align: left;
-  font: normal normal 300 24px/30px Muli;
-  letter-spacing: 0px;
-  color: #757575;
-  opacity: 1;
-}
-
-#search-container {
+#search-background {
   width: 100%;
   height: 261px;
   background-image: url("./images/fundo-busca@2x.png");
   background-size: cover;
+}
+
+#search-bar {
+  margin-top: 150px;
+  height: 70px;
+  font-family: "Mulish";
+}
+
+#search-icon {
+  background-color: rgb(246, 244, 246);
+  background-image: url("./images/lupa@2x.png");
+  background-size: 45%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  width: 80px;
 }
 
 #results-title-row {
@@ -48,25 +44,15 @@ body {
 #results-title {
   color: #5F1478;
   font-family: "Mulish";
+  font-weight: 550;
 }
 
-#btn-new-card {
+#button-new-card {
   float: right;
   background-color: #E76316;
   height: 48px;
   width: 173px;
+  font-size: 18px;
+  font-family: "Mulish";
+  font-weight: bold;
 }
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
