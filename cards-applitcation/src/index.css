@@ -3,6 +3,7 @@
 #header-title {
   background: linear-gradient(to right, #5F1478, #AE276F);
   height: 64px;
+  z-index: 400;
 }
 
 #header-logo {
@@ -28,31 +29,63 @@
 }
 
 #search-icon {
-  background-color: rgb(246, 244, 246);
+  background-color: rgb(224 224 224);
   background-image: url("./images/lupa@2x.png");
-  background-size: 45%;
+  background-size: 55%;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 1;
-  width: 80px;
+  width: 65px;
 }
 
 #results-title-row {
   margin-top: 40px;
 }
 
-#results-title {
+.title-text {
   color: #5F1478;
   font-family: "Mulish";
   font-weight: 550;
 }
 
-#button-new-card {
+#card-button {
   float: right;
   background-color: #E76316;
+  color: white;
   height: 48px;
-  width: 173px;
+  width: 167px;
   font-size: 18px;
   font-family: "Mulish";
   font-weight: bold;
+}
+
+/* Sidebar */
+
+.modal-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 500;
+  background-color: #F6F4F6CC;
+  /* -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, right 0.3s ease-out; */
+  transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal-container:hover{
+  cursor: pointer;
+}
+
+.modal-sidebar {
+  background-color: white;
+  height: 100%;
+  float: right;
+}
+
+#criar-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 46px;
+  height: 46px;
 }

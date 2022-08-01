@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Card, Image, Form, Container, InputGroup, Button, Row, Col } from 'react-bootstrap';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { Modal, Card, Image, Form, Container, InputGroup, Button, Row, Col } from 'react-bootstrap';
 import axios from "axios"
+import logo from "../images/icone_criar@2x.png"
 
 const url = "https://pokeapi.co/api/v2/pokemon";
 
@@ -12,7 +12,9 @@ class CardsList extends Component {
         this.state = {
             Items: [],
             AllPokeData: [],
-            SearchValue: null
+            SearchValue: null,
+            Show: false,
+            showSidebar: false,
         }
     }
 
@@ -70,13 +72,23 @@ class CardsList extends Component {
                             Lorem ipsum dolor sit amet consectetur.
                         </Card.Text>
                         <Row>
-                            <Col><Button variant="danger">Excluir</Button></Col>
-                            <Col><Button variant="light">Editar</Button></Col>
+                            <Col><Button variant="danger" onClick={this.toggleDeleteModal}>Excluir</Button></Col>
+                            <Col><Button variant="light" onClick={this.toggleSidebar}>Editar</Button></Col>
                         </Row>
                     </Card.Body>
                 </Card>
             </Col>
         )
+    }
+
+    toggleDeleteModal = () => {
+        let show = this.state.Show;
+        this.setState({ Show: !show });
+    }
+
+    toggleSidebar = () => {
+        let showSidebar = this.state.showSidebar;
+        this.setState({ showSidebar: !showSidebar })
     }
 
     componentDidMount() {
@@ -86,9 +98,62 @@ class CardsList extends Component {
     render() {
         const AllItems = this.state.AllPokeData;
         const SearchValue = this.state.SearchValue;
+        const showSidebar = this.state.showSidebar;
+        let displaySidebar = null;
+        if (showSidebar == false)
+            displaySidebar = "-100%";
+        else
+            displaySidebar = "0";
+
 
         return (
             <>
+                {/* Menu lateral */}
+                <Container fluid className="modal-container" style={{
+                    right: displaySidebar,
+                    padding: "0"
+                }} onClick={() => { this.toggleSidebar() }}>
+                    <Container className="modal-sidebar" style={{ width: "37%", paddingLeft: "30px" }}>
+                        <Row style={{ marginTop: "41px", paddingBottom: "15px" }}>
+                            <Col lg={2}><Image src={logo} id="criar-icon"></Image></Col>
+                            <Col className="title-text"><h1>Criar card</h1></Col>
+                        </Row>
+                        <Container style={{
+                            borderTop: "1.5px solid rgb(213 213 213)",
+                            borderBottom: "1.5px solid rgb(213 213 213)",
+                            paddingTop: "15px",
+                            paddingBottom: "15px"
+                        }}>
+                            <Row>
+                                <Col>
+                                    <Form>
+                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            <Form.Label>Digite um nome para o card</Form.Label>
+                                            <Form.Control type="email" placeholder="Digite o título" />
+                                        </Form.Group>
+                                    </Form>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <Form>
+                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            <Form.Label>Inclua uma imagem para aparecer no card</Form.Label>
+                                            <Form.Control type="email" placeholder="Nenhum arquivo selecionado" />
+                                        </Form.Group>
+                                    </Form>
+                                </Col>
+                            </Row>
+                        </Container>
+                        <Row>
+                            <Col>
+                                <Button id="card-button" variant="light" style={{ marginTop: "15px", float: "right" }}>Criar card</Button>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Container>
+
+                {/* Barra de busca */}
                 <Container fluid id="search-background">
                     <Container id="search-container">
                         <Row>
@@ -107,26 +172,28 @@ class CardsList extends Component {
                                     >
                                     </Form.Control>
                                     <InputGroup.Text id="search-icon"></InputGroup.Text>
-                                    {/* <Button variant="light" id="button-addon">
-                                    </Button> */}
                                 </InputGroup>
                             </Col>
                         </Row>
                     </Container>
                 </Container>
 
+
                 <Container fluid style={{ paddingTop: "10px", backgroundColor: "#F6F4F6" }}>
+                    {/* Resultado de busca */}
                     <Container id="result-container">
                         <Row id="results-title-row">
                             <Col md={6} xs={6}>
-                                <h1 id="results-title">Resultado de busca</h1>
+                                <h1 className="title-text">Resultado de busca</h1>
                             </Col>
                             <Col md={6} xs={6}>
-                                <Button id="button-new-card">Novo card</Button>
+                                <Button id="card-button" variant="light" onClick={() => this.toggleSidebar()}>
+                                    Novo card
+                                </Button>
                             </Col>
                         </Row>
                     </Container>
-
+                    {/* Renderização de cards */}
                     <Container style={{ marginTop: "36px" }}>
                         <Row className="text-center">
                             {AllItems.length ? AllItems.filter(val => {
@@ -139,6 +206,22 @@ class CardsList extends Component {
                         </Row>
                     </Container>
                 </Container>
+
+                {/* Modal de exlusão */}
+                <Modal show={this.state.Show} onHide={this.toggleDeleteModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Aviso!</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Esta funcionalidade ainda não foi implementada.</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.toggleDeleteModal}>
+                            Fechar
+                        </Button>
+                        {/* <Button variant="primary" onClick={this.toggleDeleteModal}>
+                            Salvar
+                        </Button> */}
+                    </Modal.Footer>
+                </Modal>
             </>
         )
     }
