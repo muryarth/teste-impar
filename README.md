@@ -1,22 +1,24 @@
 # teste-impar
-Realização do teste técnico.
+<p>Realização do teste técnico.<p>
 
 # Pacotes instalados:
 
-REACT BOOTSTRAP -> npm install react-bootstrap bootstrap
+<p>REACT BOOTSTRAP -> npm install react-bootstrap bootstrap</p>
 
-AXIOS -> npm install axios
+<p>AXIOS -> npm install axios<p>
 
 # NodeJS
 
-O projeto foi feito usando a versão "v16.16.0" do NodeJS.
+<p>O projeto foi feito usando a versão "v16.16.0" do NodeJS.</p>
+<p>Para o projeto funcionar corretamente, é necessário fazer o instalar o NodeJS na versão correta, junto do gerenciador de pacotes "npm".</p>
+<p>O download está diponível em https://nodejs.org/en/</p>
 
 # Passo a passo para visualização do projeto:
 
-1. Clonar o repositório -> Pode ser feito usando linha de comando ou colando o link HTTP no aplicativo do github
+<p>1. Clonar o repositório -> Pode ser feito usando linha de comando ou colando o link HTTP no aplicativo do github</p>
 
-2. Após isso, o usuário deve acessar a pasta cards-application (O caminho correto deverá ser "../teste-impar/cards-application")
+<p>2. Após isso, o usuário deve acessar a pasta cards-application (O caminho correto deverá ser "../teste-impar/cards-application")</p>
 
-3. O usuário deve escrever o comando "npm i" no prompt para instalar os pacotes encontrados na pasta package.json
+<p>3. O usuário deve escrever o comando "npm i" no prompt para instalar os pacotes encontrados na pasta package.json</p>
 
-4. Após a instalação de todos os pacotes, o usuário deve rodar o comando "npm start" no prompt, para iniciar a aplicação react localmente
+<p>4. Após a instalação de todos os pacotes, o usuário deve rodar o comando "npm start" no prompt, para iniciar a aplicação react localmente</p>
