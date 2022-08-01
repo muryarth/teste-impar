@@ -10,7 +10,7 @@
 # NodeJS
 
 <p>O projeto foi feito usando a versão "v16.16.0" do NodeJS.</p>
-<p>Para o projeto funcionar corretamente, é necessário fazer o instalar o NodeJS na versão correta, junto do gerenciador de pacotes "npm".</p>
+<p>Para o projeto funcionar corretamente, é necessário fazer o instalação do NodeJS na versão correta junto do gerenciador de pacotes "npm".</p>
 <p>O download está diponível em https://nodejs.org/en/</p>
 
 # Passo a passo para visualização do projeto:
