@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Modal, Card, Image, Form, Container, InputGroup, Button, Row, Col } from 'react-bootstrap';
 import axios from "axios"
-import logo from "../images/icone_criar@2x.png"
+import logo from "../images/icone_criar@2x.png";
+import iconEdit from "../images/Icon-edit@2x.png";
+import iconTrash from "../images/Icon-trash@2x.png";
 
 const url = "https://pokeapi.co/api/v2/pokemon";
 
@@ -56,36 +58,34 @@ class CardsList extends Component {
             <Col lg={3} md={4} sm={6} style={{ marginBottom: "38px" }}>
                 <Card style={{ backgroundColor: "#FFFFFF" }}>
                     <Container>
-                        <Image src={item.imageUrl} roundedCircle style={{ width: "95px", height: "95px", backgroundColor: "#F6F4F6", marginTop: "28px" }}></Image>
+                        <Image src={item.imageUrl} roundedCircle style={{ width: "95px", height: "95px", backgroundColor: "#F6F4F6", marginTop: "28px", border: "1px solid #E4E4E4" }}></Image>
                     </Container>
-                    <Card.Body>
+                    <Card.Body style={{ padding: "0px" }}>
                         <Card.Title>{item.name}</Card.Title>
-                        <hr
-                            style={{
-                                background: '#F0EFF0',
-                                color: '#F0EFF0',
-                                borderColor: '#F0EFF0',
-                                height: '3px',
-                            }}
-                        />
-                        <Card.Text>
+                        <Card.Text style={{ borderTop: "1px solid #E4E4E4", padding: "15px", margin: "30px" }} >
                             Lorem ipsum dolor sit amet consectetur.
                         </Card.Text>
-                        <Row>
-                            <Col><Button variant="danger" onClick={this.toggleDeleteModal}>Excluir</Button></Col>
-                            <Col><Button variant="light" onClick={this.toggleSidebar}>Editar</Button></Col>
-                        </Row>
+                        <Card.Footer style={{ marginTop: "15px" }}>
+                            <Row>
+                                <Col><Button id="card-button" variant="light" onClick={this.toggleDeleteModal}><Image src={iconTrash} className="card-icon"></Image><span>Excluir</span></Button></Col>
+                                <Col style={{
+                                    borderLeft: "1px solid #E4E4E4"
+                                }}><Button id="card-button" variant="light" onClick={this.toggleSidebar}><Image src={iconEdit} className="card-icon"></Image><span>Editar</span></Button></Col>
+                            </Row>
+                        </Card.Footer>
                     </Card.Body>
                 </Card>
             </Col>
         )
     }
 
+    //Mostra/Esconde a modal
     toggleDeleteModal = () => {
         let show = this.state.Show;
         this.setState({ Show: !show });
     }
 
+    //Mostra/Esconde a barra lateral
     toggleSidebar = () => {
         let showSidebar = this.state.showSidebar;
         this.setState({ showSidebar: !showSidebar })
@@ -95,6 +95,7 @@ class CardsList extends Component {
         this.GetAllData();
     }
 
+    //Renderiza a aplicação
     render() {
         const AllItems = this.state.AllPokeData;
         const SearchValue = this.state.SearchValue;
@@ -127,7 +128,7 @@ class CardsList extends Component {
                             <Row>
                                 <Col>
                                     <Form>
-                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Group className="mb-3">
                                             <Form.Label>Digite um nome para o card</Form.Label>
                                             <Form.Control type="email" placeholder="Digite o título" />
                                         </Form.Group>
@@ -136,25 +137,23 @@ class CardsList extends Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    <Form>
-                                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Label>Inclua uma imagem para aparecer no card</Form.Label>
-                                            <Form.Control type="email" placeholder="Nenhum arquivo selecionado" />
-                                        </Form.Group>
-                                    </Form>
+                                    <Form.Group className="mb-3" controlId="formFile" >
+                                        <Form.Label>Inclua uma imagem para aparecer no card</Form.Label>
+                                        <Form.Control type="file" />
+                                    </Form.Group>
                                 </Col>
                             </Row>
                         </Container>
                         <Row>
                             <Col>
-                                <Button id="card-button" variant="light" style={{ marginTop: "15px", float: "right" }}>Criar card</Button>
+                                <Button id="button-addon" variant="light" style={{ marginTop: "15px", float: "right" }}>Criar card</Button>
                             </Col>
                         </Row>
                     </Container>
-                </Container>
+                </Container >
 
                 {/* Barra de busca */}
-                <Container fluid id="search-background">
+                < Container fluid id="search-background" >
                     <Container id="search-container">
                         <Row>
                             <Col md={12}>
@@ -176,7 +175,7 @@ class CardsList extends Component {
                             </Col>
                         </Row>
                     </Container>
-                </Container>
+                </Container >
 
 
                 <Container fluid style={{ paddingTop: "10px", backgroundColor: "#F6F4F6" }}>
@@ -187,7 +186,7 @@ class CardsList extends Component {
                                 <h1 className="title-text">Resultado de busca</h1>
                             </Col>
                             <Col md={6} xs={6}>
-                                <Button id="card-button" variant="light" onClick={() => this.toggleSidebar()}>
+                                <Button id="button-addon" variant="light" onClick={() => this.toggleSidebar()}>
                                     Novo card
                                 </Button>
                             </Col>
@@ -217,9 +216,6 @@ class CardsList extends Component {
                         <Button variant="secondary" onClick={this.toggleDeleteModal}>
                             Fechar
                         </Button>
-                        {/* <Button variant="primary" onClick={this.toggleDeleteModal}>
-                            Salvar
-                        </Button> */}
                     </Modal.Footer>
                 </Modal>
             </>
